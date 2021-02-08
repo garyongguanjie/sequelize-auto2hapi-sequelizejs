@@ -1,0 +1,22 @@
+{
+  "name": "sequelize-auto2hapi-sequelizejs",
+  "version": "1.0.0",
+  "description": "Converts sequlize auto models to hap-sequlize js models",
+  "main": "index.js",
+  "bin":{
+    "hapiconvert":"index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gary-x0pa/sequelize-auto2hapi-sequelizejs.git"
+  },
+  "author": "Gary Ong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gary-x0pa/sequelize-auto2hapi-sequelizejs/issues"
+  },
+  "homepage": "https://github.com/gary-x0pa/sequelize-auto2hapi-sequelizejs#readme"
+}
