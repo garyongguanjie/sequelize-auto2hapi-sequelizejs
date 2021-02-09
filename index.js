@@ -143,6 +143,7 @@ async function makeFile(fileName,modelName,associations){
         let modelString =  `  const ${modelName} = model.${modelName};\n`;
         if (!modelSet.has(modelString)){
             modelsPlate += modelString;
+            modelSet.add(modelString);
         }
         associationsPlate += `  ${assoc}\n`;
     }
