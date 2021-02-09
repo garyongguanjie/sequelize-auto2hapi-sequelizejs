@@ -131,14 +131,19 @@ async function getSequelizeDefine(fileName,modelName){
 }
 async function makeFile(fileName,modelName,associations){
     let sqlDefString = await getSequelizeDefine(`${INPUT_PATH}/${fileName}`,modelName);
+    let modelSet = new Set();
     let modelsPlate = `  const ${modelName} = model.${modelName};\n`
+    modelSet.add(modelsPlate);
     let models = [modelName];
-    let associationsPlate = ""
+    let associationsPlate = "";
     for (assoc of associations){
         let startIndex = assoc.indexOf("(") + 1;
         let endIndex = assoc.indexOf(",");
         let modelName = assoc.substring(startIndex,endIndex);
-        modelsPlate += `  const ${modelName} = model.${modelName};\n`;
+        let modelString =  `  const ${modelName} = model.${modelName};\n`;
+        if (modelSet.has(modelString)){
+            modelsPlate += modelString;
+        }
         associationsPlate += `  ${assoc}\n`;
     }
 
