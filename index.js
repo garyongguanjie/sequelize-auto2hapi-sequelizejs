@@ -149,7 +149,8 @@ async function makeFile(fileName,modelName,associations){
     }
 
     let template = 
-`module.exports = (sequelize, DataTypes) => {
+`const Sequelize = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
 ${sqlDefString}
   ${modelName}.associate = function(model) {
     initRelations(model);
