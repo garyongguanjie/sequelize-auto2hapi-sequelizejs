@@ -79,7 +79,8 @@ async function readAllModels(fileName) {
             }
         }
     }
-
+    console.log(modelNames);
+    console.log(modelFileNames);
     assert.strictEqual(modelNames.length,modelFileNames.length);
     let fileName2modelName = new Map();
     let modelName2FileName = new Map();
