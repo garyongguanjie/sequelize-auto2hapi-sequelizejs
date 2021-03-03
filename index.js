@@ -47,7 +47,7 @@ async function readAllModels(fileName) {
     const assocSet = new Set(["belongsTo","belongsToMany","hasMany","hasOne"]);
     let inFunction = false;
     for await (let line of rl) {
-        if (line.includes("function")) {
+        if (line.includes("function initModels(sequelize)")) {
             inFunction = true;
         }
         if(!inFunction){
