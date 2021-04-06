@@ -47,7 +47,7 @@ async function readAllModels(fileName) {
     const assocSet = new Set(["belongsTo","belongsToMany","hasMany","hasOne"]);
     let inFunction = false;
     for await (let line of rl) {
-        if (line.includes("function")) {
+        if (line.includes("function initModels(sequelize)")) {
             inFunction = true;
         }
         if(!inFunction){
@@ -79,7 +79,8 @@ async function readAllModels(fileName) {
             }
         }
     }
-
+    console.log(modelNames);
+    console.log(modelFileNames);
     assert.strictEqual(modelNames.length,modelFileNames.length);
     let fileName2modelName = new Map();
     let modelName2FileName = new Map();
